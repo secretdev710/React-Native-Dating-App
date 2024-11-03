@@ -15,65 +15,65 @@ const EnterPhone = () => {
     const [selected, setSelected] = useState<any>({});
 
     const [details, setDetails] = useState<any>([
-        // {
-        //     title: "מזל",
-        //     options: [
-        //         "גדי", "דלי", "דגים",
-        //         "טלה", "שור", "תאומים",
-        //         "סרטן", "אריה", "בתולה",
-        //         "מאזניים", "עקרב", "קשת"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "השכלה",
-        //     options: [
-        //         "אקדמאית", "על תיכונית", "תיכונית"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "כושר",
-        //     options: [
-        //         "תדירות גבוהה", "מידי פעם", "בכלל לא"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "בעלי חיים",
-        //     options: [
-        //         "איכס שיערות", "אין לי אבל חולה עליהם", "אי אפשר בלי"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "תזונה",
-        //     options: [
-        //         "טבעוני", "צמחוני", "רגיל", "כשר", "קרניבור"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "עישון",
-        //     options: [
-        //         "בסופי שבוע", "בכלל לא", "מעשן", "באירועים"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "שתיית אלכוהול",
-        //     options: [
-        //         "בסופי שבוע", "בישיבות עם חברים", "בכלל לא", "הבקבוק זה אח"
-        //     ],
-        //     selected: ""
-        // },
-        // {
-        //     title: "מדיה חברתית",
-        //     options: [
-        //         "משפיען", "24/7", "פעיל קצת", "לא פעיל בכלל"
-        //     ],
-        //     selected: ""
-        // },
+        {
+            title: "מזל",
+            options: [
+                "גדי", "דלי", "דגים",
+                "טלה", "שור", "תאומים",
+                "סרטן", "אריה", "בתולה",
+                "מאזניים", "עקרב", "קשת"
+            ],
+            selected: ""
+        },
+        {
+            title: "השכלה",
+            options: [
+                "אקדמאית", "על תיכונית", "תיכונית"
+            ],
+            selected: ""
+        },
+        {
+            title: "כושר",
+            options: [
+                "תדירות גבוהה", "מידי פעם", "בכלל לא"
+            ],
+            selected: ""
+        },
+        {
+            title: "בעלי חיים",
+            options: [
+                "איכס שיערות", "אין לי אבל חולה עליהם", "אי אפשר בלי"
+            ],
+            selected: ""
+        },
+        {
+            title: "תזונה",
+            options: [
+                "טבעוני", "צמחוני", "רגיל", "כשר", "קרניבור"
+            ],
+            selected: ""
+        },
+        {
+            title: "עישון",
+            options: [
+                "בסופי שבוע", "בכלל לא", "מעשן", "באירועים"
+            ],
+            selected: ""
+        },
+        {
+            title: "שתיית אלכוהול",
+            options: [
+                "בסופי שבוע", "בישיבות עם חברים", "בכלל לא", "הבקבוק זה אח"
+            ],
+            selected: ""
+        },
+        {
+            title: "מדיה חברתית",
+            options: [
+                "משפיען", "24/7", "פעיל קצת", "לא פעיל בכלל"
+            ],
+            selected: ""
+        },
         {
             title: "חיי לילה",
             options: [
@@ -129,15 +129,20 @@ const EnterPhone = () => {
                     // Add a check to render only if details is an array
                     Array.isArray(details) && details.map((item: any, index1: number) => {
                         return (
-                            <Box key={item.title} style={{ marginTop: "7%"}}>
+                            <Box key={details[index1].title} style={{ marginTop: "7%", flex: 1, alignItems: "flex-end" }}>
                                 <Text
-                                    style={{ fontFamily: "Heebo", fontSize: 19, fontWeight: "bold" }}
-                                >{item.title}</Text>
+                                    style={{
+                                        fontFamily: "Heebo",
+                                        fontSize: 19, fontWeight: "bold",
+                                        textAlign: "right",
+                                        width: "100%"
+                                    }}
+                                >{details[index1].title}</Text>
                                 <Box flex={1} style={styles.sel_box}>
-                                    {item.options.map((option: any, index: number) => {
+                                    {details[index1].options.map((option: any, index: number) => {
                                         return (
                                             <SelButton
-                                                isSelected={item.selected === option}
+                                                isSelected={details[index1].selected === option}
                                                 key={`option-${index1}-${index}`}
                                                 onPress={() => {
                                                     let tmpDetails = [...details];

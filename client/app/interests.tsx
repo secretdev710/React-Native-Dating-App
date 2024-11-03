@@ -46,7 +46,7 @@ const EnterPhone = () => {
                 })}
             </Box>
 
-            <CommonBtn style={styles.next} title="סיום" onPress={() => { router.push("/(tabs)") }} />
+            <CommonBtn style={styles.next} title="סיום" onPress={() => { router.push("/moredetail") }} />
         </ImageBackground>
     );
 }
