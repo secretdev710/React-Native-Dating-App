@@ -15,7 +15,7 @@ export default function Animation() {
     useEffect(() => {
         setTimeout(() => {
             router.push("/welcome");
-        }, 1000);
+        }, 3000);
     })
     return (
         <ImageBackground source={require("@/assets/images/splash.png")} style={styles.splash}>

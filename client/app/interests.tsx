@@ -4,6 +4,7 @@ import { Input, Pressable, Box } from "native-base";
 import { CommonBtn } from "@/components/Buttons";
 import { useRouter } from "expo-router";
 import { ImageBackground } from "expo-image";
+import SelButton from "@/components/Buttons/SelectBtn";
 
 const EnterPhone = () => {
 
@@ -23,19 +24,10 @@ const EnterPhone = () => {
         "פרישייק", "לחימה אומנותית"
     ];
 
-    const SelButton = (props: any) => {
-        return (
-            <Pressable style={{...styles.sel_button, ...selected[props.children] && styles.sel_button_selected}}
-                w={150} h={50}
-                borderRadius={10}
-                onPress={() => {
-                    let tmp = { ...selected };
-                    tmp[props.children] = !tmp[props.children];
-                    setSelected(tmp);
-                }}
-            ><Text style={{...styles.sel_text, ...selected[props.children] && styles.sel_text_selected}}>{props.children}</Text>
-            </Pressable>
-        )
+    const onSelectBtn = (item: any) => {
+        let tmp = { ...selected };
+        tmp[item] = !tmp[item];
+        setSelected(tmp);
     }
 
     return (
@@ -45,12 +37,16 @@ const EnterPhone = () => {
             <Box flex={1} style={styles.sel_box}>
                 {interestsList.map((item, index) => {
                     return (
-                        <SelButton key={index}>{item}</SelButton>
+                        <SelButton
+                            isSelected={selected[item]}
+                            key={index} onPress={() => onSelectBtn(item)}
+                            width="28%" height="7%" marginBottom="4%" marginStart="5.3%"
+                        >{item}</SelButton>
                     )
                 })}
             </Box>
 
-            <CommonBtn style={styles.next} title="סיום" onPress={() => { router.push("/verifyphone") }} />
+            <CommonBtn style={styles.next} title="סיום" onPress={() => { router.push("/(tabs)") }} />
         </ImageBackground>
     );
 }
@@ -75,29 +71,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         width: "100%",
         color: "#DD527B",
-    },
-    sel_button: {
-        borderRadius: 10,
-        width: "28%",
-        height: "7%",
-        backgroundColor: "transparent",
-        borderWidth: 1,
-        marginBottom: "4%",
-        marginStart: "5.3%",
-        borderColor: "#C0C0C0",
-    },
-    sel_button_selected: {
-        backgroundColor: "#DD527B",
-    },
-    sel_text: {
-        textAlign: "center",
-        fontSize: 12,
-        fontFamily: 'Heebo',
-        fontWeight: 'semibold',
-        margin: "auto",
-    },
-    sel_text_selected: {
-        color: "white",
     },
     sel_box: {
         flexDirection: "row",

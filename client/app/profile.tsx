@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     scrollContent: {
         alignItems: 'center',
         paddingRight: 5,
+        width: width,
         paddingBottom: 20, // Add some padding at the bottom to prevent content from being cut off
     },
     images: {

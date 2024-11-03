@@ -69,6 +69,7 @@ export default function RootLayout() {
               <Stack.Screen name='profile' options={{ headerTitle: 'יצירת פרופיל' }} />
               <Stack.Screen name='welcome' options={{ headerShown: false }} />
               <Stack.Screen name='interests' options={{ headerTitle: "תחומי עניין" }} />
+              <Stack.Screen name='moredetail' options={{ headerTitle: "פרטים נוספים"}} />
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               <Stack.Screen name="+not-found" />
             </Stack>
